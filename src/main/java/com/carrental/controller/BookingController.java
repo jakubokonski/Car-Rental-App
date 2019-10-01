@@ -22,17 +22,16 @@ import java.util.List;
 @Controller
 public class BookingController {
 
-    @Autowired
-    private BookingService bookingService;
-
-    @Autowired
+//    private BookingService bookingService;
     private DepartmentService departmentService;
-
-    @Autowired
     private CarService carService;
-
-    @Autowired
     private CarBookingDatesService carBookingDatesService;
+
+    public BookingController(DepartmentService departmentService, CarService carService, CarBookingDatesService carBookingDatesService) {
+        this.departmentService = departmentService;
+        this.carService = carService;
+        this.carBookingDatesService = carBookingDatesService;
+    }
 
     @GetMapping("booking")
     public String getBooking(Model model) {

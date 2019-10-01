@@ -97,6 +97,12 @@
 	padding: 30px 0;
 }
 
+.section-dark {
+	background-size: cover;
+	background: url("/assets/img/banner.jpg") center center;
+
+}
+
 .section-title {
 	font-size: 15px;
 	font-weight: 300;
@@ -374,7 +380,7 @@ a.slicknav_btn {
 	background-color: rgba(255, 255, 255, 0.8);
 	margin-top: 118px;
 	padding: 30px 50px;
-	border-radius: 30px;
+	border-radius: 20px;
 }
 
 .book-a-car select.custom-select {
@@ -2920,8 +2926,9 @@ body,
 }
 
 .login-form {
-	background-color: #9fcc16;
+	background-color: rgba(255, 255, 255, 0.8);
 	padding: 50px 20px 15px;
+	border-radius: 20px;
 }
 
 .login-form h3 {

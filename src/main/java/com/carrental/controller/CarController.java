@@ -37,19 +37,19 @@ public class CarController {
         return "/car-list";
     }
 
-    @GetMapping("/admin/add-car")
-    public String addCar(Model model) {
-        model.addAttribute("car", Car.builder().build());
-        return "admin/add-car";
-    }
+//    @GetMapping("/admin/add-car")
+//    public String addCar(Model model) {
+//        model.addAttribute("car", Car.builder().build());
+//        return "admin/add-car";
+//    }
 
-    @PostMapping("/admin/add-car")
-    public String addCar(Model model, Car car) {
-        model.addAttribute("car", car);
-        car.setRentalStatus(RentalStatus.AVAILABLE);
-        carService.saveCar(car);
-        return "success";
-    }
+//    @PostMapping("/admin/add-car")
+//    public String addCar(Model model, Car car) {
+//        model.addAttribute("car", car);
+//        car.setRentalStatus(RentalStatus.AVAILABLE);
+//        carService.saveCar(car);
+//        return "success";
+//    }
 
     @GetMapping("/list-cars")
     public String listCars(Model model) {
@@ -68,9 +68,6 @@ public class CarController {
                 .make(car.getMake())
                 .model(car.getModel())
                 .bodyType(car.getBodyType())
-                .year(car.getYear())
-                .colour(car.getColour())
-                .mileage(car.getMileage())
                 .rentalStatus(car.getRentalStatus())
                 .fee(car.getFee())
                 .department(car.getDepartment())

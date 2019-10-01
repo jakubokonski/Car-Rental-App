@@ -1,0 +1,63 @@
+<header th:fragment="admin-header" id="header-area" class="fixed-top" xmlns:th="http://www.w3.org/1999/xhtml">
+    <!--== Header Top Start ==-->
+    <div id="header-top" class="d-none d-xl-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 text-left">
+                    <i class="fa fa-map-marker"></i> ul. Karowa 1/2, 01-001 Warszawa
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-mobile"></i> phone: 600-600-808
+                </div>
+                <div class="col-lg-4 text-right">
+                    <i class="fa fa-clock-o"></i> Mon-Fri 09.00 - 17.00
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Header Top End ==-->
+    <!--== Header Bottom Start ==-->
+    <div id="header-bottom">
+        <div class="container">
+            <div class="row">
+                <!--== Logo Start ==-->
+                <div class="col-lg-4">
+                    <a href="/" class="logo">
+                        <img src="assets/img/logo.png" alt="Rent-A-Car!">
+                    </a>
+                </div>
+                <!--== Logo End ==-->
+
+                <!--== Main Menu Start ==-->
+                <div class="col-lg-8 d-none d-xl-block">
+                    <nav class="mainmenu alignright">
+                        <ul>
+                            <li><a href="/edit-company-details">Edit company details</a></li>
+                            <li><a href="/admin/cars">Cars</a>
+                                <ul>
+                                    <li><a href="/admin/add-car">Add car</a></li>
+                                    <li><a href="/admin/cars">Cars</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Employees</a>
+                                <ul>
+                                    <li><a href="/admin/add-employee">Add employee</a></li>
+                                    <li><a href="/admin/employees">Employees</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Branches</a>
+                                <ul>
+                                    <li><a href="/admin/add-branch">Add branch</a></li>
+                                    <li><a href="/admin/branches">Branches</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--== Main Menu End ==-->
+            </div>
+        </div>
+    </div>
+    <!--== Header Bottom End ==-->
+</header>

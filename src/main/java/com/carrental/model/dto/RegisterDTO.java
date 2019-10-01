@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClientForm {
+public class RegisterDTO {
 
     @NotEmpty(message = "{poleWymagane}")
     private String name;
@@ -31,6 +31,7 @@ public class ClientForm {
     private String street;
     @NotEmpty(message = "{poleWymagane}")
     private String buildingNumber;
+    private String flatNumber;
     @NotEmpty(message = "{poleWymagane}")
     private String city;
 

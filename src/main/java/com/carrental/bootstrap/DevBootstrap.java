@@ -1,10 +1,7 @@
 package com.carrental.bootstrap;
 
 import com.carrental.model.*;
-import com.carrental.model.enums.BodyType;
-import com.carrental.model.enums.Colour;
-import com.carrental.model.enums.RentalStatus;
-import com.carrental.model.enums.Role;
+import com.carrental.model.enums.*;
 import com.carrental.repository.CarBookingDatesRepository;
 import com.carrental.repository.CarRepository;
 import com.carrental.repository.ClientRepository;
@@ -49,9 +46,13 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
                 .make("Mazda")
                 .model("3")
                 .bodyType(BodyType.MEDIUM)
-                .year("2017")
-                .colour(Colour.SILVER)
-                .mileage(BigDecimal.valueOf(2300))
+                .seats("5")
+                .doors("5")
+                .engine(Engine.PETROL)
+                .aircon(true)
+                .manualGearbox(true)
+                .satnav(true)
+                .bluetooth(false)
                 .rentalStatus(RentalStatus.AVAILABLE)
                 .fee(BigDecimal.valueOf(180))
                 .department(Department.builder()
@@ -69,9 +70,13 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
                 .make("Toyota")
                 .model("Prius")
                 .bodyType(BodyType.LARGE)
-                .year("2018")
-                .colour(Colour.BLACK)
-                .mileage(BigDecimal.valueOf(1200))
+                .seats("5")
+                .doors("5")
+                .engine(Engine.HYBRID)
+                .aircon(true)
+                .manualGearbox(false)
+                .satnav(false)
+                .bluetooth(false)
                 .rentalStatus(RentalStatus.AVAILABLE)
                 .fee(BigDecimal.valueOf(200))
                 .department(Department.builder()
@@ -90,9 +95,13 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
                 .make("Ford")
                 .model("Transit")
                 .bodyType(BodyType.LARGE)
-                .year("2014")
-                .colour(Colour.BLACK)
-                .mileage(BigDecimal.valueOf(120000))
+                .seats("2")
+                .doors("5")
+                .engine(Engine.DIESEL)
+                .aircon(true)
+                .manualGearbox(true)
+                .bluetooth(false)
+                .satnav(false)
                 .rentalStatus(RentalStatus.BOOKED)
                 .fee(BigDecimal.valueOf(200))
                 .department(Department.builder()

@@ -1,7 +1,8 @@
-package com.carrental.model;
+package com.carrental.model.dto;
 
+import com.carrental.model.CarBookingDates;
+import com.carrental.model.Department;
 import com.carrental.model.enums.BodyType;
-import com.carrental.model.enums.Colour;
 import com.carrental.model.enums.Engine;
 import com.carrental.model.enums.RentalStatus;
 import lombok.AllArgsConstructor;
@@ -10,25 +11,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.util.List;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Car {
+@NoArgsConstructor
+public class CarDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    //TODO dodać zdjęcie
+    @NotEmpty(message = "poleWymagane")
     private String make;
+    @NotEmpty(message = "poleWymagane")
     private String model;
+
     @Enumerated(value = EnumType.STRING)
     private BodyType bodyType;
+
     private String seats;
     private String doors;
     @Enumerated(value = EnumType.STRING)
@@ -37,14 +37,8 @@ public class Car {
     private Boolean manualGearbox;
     private Boolean satnav;
     private Boolean bluetooth;
-
-    @Enumerated(value = EnumType.STRING)
-    private RentalStatus rentalStatus;
     private BigDecimal fee;
-
-    @ManyToOne(cascade = CascadeType.ALL)
     private Department department;
+    private List<Department> departments;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "car")
-    private List<CarBookingDates> carBookingDates;
 }

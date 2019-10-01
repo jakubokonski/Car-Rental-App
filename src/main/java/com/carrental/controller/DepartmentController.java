@@ -17,8 +17,11 @@ import javax.validation.Valid;
 @Controller
 public class DepartmentController {
 
-    @Autowired
     private DepartmentService departmentService;
+
+    public DepartmentController(DepartmentService departmentService) {
+        this.departmentService = departmentService;
+    }
 
     @GetMapping("/add-department")
     private String addDepartment(Model model) {

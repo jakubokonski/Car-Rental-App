@@ -59,9 +59,6 @@ public class CarService {
         car.setMake(editCarForm.getMake());
         car.setModel(editCarForm.getModel());
         car.setBodyType(editCarForm.getBodyType());
-        car.setYear(editCarForm.getYear());
-        car.setColour(editCarForm.getColour());
-        car.setMileage(editCarForm.getMileage());
         car.setRentalStatus(editCarForm.getRentalStatus());
         car.setFee(editCarForm.getFee());
         car.setDepartment(editCarForm.getDepartment());

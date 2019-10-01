@@ -23,11 +23,7 @@ public class EmployeeController {
     @Autowired
     private DepartmentService departmentService;
 
-    @GetMapping("/register")
-    private String register(Model model) {
-        model.addAttribute("employee", Employee.builder().build());
-        return "register";
-    }
+
 
     @PostMapping("/register-owner")
     private String registerSuccess(@Valid @ModelAttribute Employee employee,

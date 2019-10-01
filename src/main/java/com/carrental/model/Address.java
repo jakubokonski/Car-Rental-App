@@ -20,5 +20,6 @@ public class Address {
     private Long id;
     private String street;
     private String buildingNumber;
+    private String flatNumber;
     private String city;
 }
