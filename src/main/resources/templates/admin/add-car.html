@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add car</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav th:replace="components/logged-menu :: logged-menu"></nav>
+
+<div class="container">
+    <div class="row">
+        <form method="post" th:action="@{/admin/add-car}" th:object="${car}">
+            Add car:
+            <div class="row">
+                <div class="col form-group">
+                    <label for="inputMake">Make</label>
+                    <input type="text" class="form-control" id="inputMake" th:field="*{make}">
+                </div>
+                <div class="col form-group">
+                    <label for="inputModel">Model</label>
+                    <input type="text" class="form-control" id="inputModel" th:field="*{model}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label for="selectBodyType">Body type</label>
+                    <select class="form-control" id="selectBodyType" th:field="*{bodyType}">
+                        <option th:each="bodyType : ${T(com.carrental.CarRental.model.enums.BodyType).values()}" th:value="${bodyType}" th:text="${bodyType.displayName}" ></option>
+                    </select>
+                </div>
+                <div class="col form-group">
+                    <label for="inputYear">Year</label>
+                    <input type="text" class="form-control" id="inputYear" th:field="*{year}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label for="selectColour">Color</label>
+                    <select class="form-control" id="selectColour" th:field="*{colour}">
+                        <option th:each="colour : ${T(com.carrental.CarRental.model.enums.Colour).values()}" th:value="${colour}" th:text="${colour.displayName}"></option>
+                    </select>
+                </div>
+                <div class=" col form-group">
+                    <label for="inputMileage">Mileage</label>
+                    <input type="text" class="form-control" id="inputMileage" th:field="*{mileage}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputFee">Initial fee</label>
+                <input type="text" class="form-control" id="inputFee" th:field="*{fee}">
+            </div>
+
+            <input type="submit" name="submit" class="btn btn-outline-info" th:value="Submit"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

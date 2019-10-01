@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav th:replace="components/logged-menu :: logged-menu"></nav>
+
+<div class="container">
+    <div class="row">
+        <form method="post" th:action="@{/admin/add-employee}" th:object="${employeeDTO}">
+            <h5>Register new employee.</h5>
+            <div class="col form-group">
+                <label for="inputName">First name</label>
+                <input type="text" class="form-control" id="inputName" th:field="*{name}">
+                <p th:errors="*{name}"></p>
+            </div>
+            <div class="col form-group">
+                <label for="inputSurName">Surname</label>
+                <input type="text" class="form-control" id="inputSurName" th:field="*{surname}">
+            </div>
+            <div class="col form-group">
+                <label for="selectRole">Select position</label>
+                <select class="form-control" id="selectRole" th:field="*{role}">
+                    <option th:each="role : ${T(com.carrental.CarRental.model.enums.RoleEmployees).values()}" th:value="${role}" th:text="${role.displayName}" ></option>
+                </select>
+            </div>
+            <div class="col form-group">
+                <label for="selectDept">Select branch</label>
+                <select class="form-control" id="selectDept" th:field="*{department}">
+                    <option th:each="department : *{departments}" th:value="${department.id}" th:text="${department.name}"></option>
+                </select>
+            </div>
+            <input type="submit" name="submit" class="btn btn-outline-info" th:value="Submit"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

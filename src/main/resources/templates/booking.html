@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Department</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav th:replace="components/logged-menu :: logged-menu"></nav>
+
+<br>
+<div class="container">
+    <div class="row">
+        <form method="post" th:action="@{/booking}" th:object="${bookingForm}">
+            Choose date, start and end point. <br/> <br/>
+            <div class="form-group">
+                <label for="inputName">Start data</label>
+                <input type="date" class="form-control" id="inputName" th:field="*{rentalStart}">
+                <p th:errors="*{rentalStart}"></p>
+            </div>
+            <div class="form-group">
+                <label for="inputStreet">End data</label>
+                <input type="date" class="form-control" id="inputStreet" th:field="*{rentalEnd}">
+                <p th:errors="*{rentalEnd}"></p>
+            </div>
+            <div class="form-group">
+                <label for="inputBuildingNo">Start point</label>
+                <select type="text" class="form-control" id="inputBuildingNo" th:field="*{departmentStart}">
+                    <option th:each="department : *{departmentList}" th:value="${department.id}"
+                            th:text="${department.getName()}"></option>
+                    <p th:errors="*{departmentStart}"></p>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputCity">End point</label>
+                <select type="text" class="form-control" id="inputCity" th:field="*{departmentEnd}">
+                    <option th:each="department : *{departmentList}" th:value="${department.id}"
+                            th:text="${department.getName()}"></option>
+                    <p th:errors="*{departmentEnd}"></p>
+                </select>
+            </div>
+
+            <input type="submit" name="submit" class="btn btn-outline-info" th:value="Check"/>
+
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <p>Available cars:</p>
+    <div class="row form-group">
+        <div class="col"><strong>Make</strong></div>
+        <div class="col"><strong>Model</strong></div>
+        <div class="col"><strong>Type</strong></div>
+    </div>
+    <div class="row" th:each="car: ${cars}" th:object="${car}">
+        <div class="row form-group">
+            <div class="col"><span th:text="${car.make}"/></div>
+            <div class="col"><span th:text="${car.model}"/></div>
+            <div class="col"><span th:text="${car.bodyType}"/></div>
+            <div class="col">
+                <a th:href="@{'/booking-summary?car_id=' + ${car.id}}" class="btn btn-outline-info">Book</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

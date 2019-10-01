@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="components/head :: head"></head>
+
+<body>
+<header th:replace="components/header :: header"></header>
+
+<!--== Page Title Area Start ==-->
+<section id="page-title-area" class="section-padding overlay">
+    <div class="container">
+        <div class="row">
+            <!-- Page Title Start -->
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>Our Cars</h2>
+                    <span class="title-line"><i class="fa fa-car"></i></span>
+                </div>
+            </div>
+            <!-- Page Title End -->
+        </div>
+    </div>
+</section>
+<!--== Page Title Area End ==-->
+
+<!--== Car List Area Start ==-->
+<section id="car-list-area" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <form class="row" method="post" th:action="@{/confirm-booking}" th:object="${car}">
+            <!-- Car List Content Start -->
+            <div class="col-lg-8">
+                <div class="car-details-content">
+                    <h2 th:text="${car.make} + ' ' + ${car.model}"> <span class="price">Rent: <b th:text="${car.fee}"></b></span></h2>
+                    <div class="car-preview-crousel">
+                        <div class="car-list-thumb car-thumb-1"></div>
+                    </div>
+                    <div class="car-details-info">
+                        <h4>Additional Info</h4>
+                        <p>Comfy car, very low fuel consumption. Easy to drive.</p>
+                        <div class="technical-info">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="tech-info-table">
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <th>Class</th>
+                                                <td>Compact</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Fuel</th>
+                                                <td>Petrol</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Doors</th>
+                                                <td>5</td>
+                                            </tr>
+                                            <tr>
+                                                <th>GearBox</th>
+                                                <td>Automatic</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="tech-info-list">
+                                        <ul>
+                                            <li>ABS</li>
+                                            <li>Air Bags</li>
+                                            <li>Bluetooth</li>
+                                            <li>Car Kit</li>
+                                            <li>GPS</li>
+                                            <li>Music</li>
+                                            <li>Bluetooth</li>
+                                            <li>ABS</li>
+                                            <li>GPS</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- Car List Content End -->
+
+                <!-- Sidebar Area Start -->
+                <div class="col-lg-4">
+                    <div class="sidebar-content-wrap m-t-50">
+                        <!-- Single Sidebar Start -->
+<!--                        <div class="single-sidebar">-->
+                            <h3>Booking summary:</h3>
+
+                            <div class="sidebar-body">
+                                <p><i class="fa fa-mobile"></i> +8801816 277 243</p>
+                                <p><i class="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00</p>
+                            </div>
+<!--                        </div>-->
+                        <!-- Single Sidebar End -->
+                    </div>
+                </div>
+                <!-- Sidebar Area End -->
+            </form>
+        </div>
+    </div>
+</section>
+
+<!--<div class="container">-->
+<!--    <form method="post" th:action="@{/confirm-booking}" th:object="${car}">-->
+<!--        <div class="row form-group">-->
+<!--            <div class="col">Make</div>-->
+<!--            <div class="col">Model</div>-->
+<!--            <div class="col">Type</div>-->
+<!--            <div class="col">Colour</div>-->
+<!--            <div class="col">Daily fee</div>-->
+<!--            <div class="col">Collect from</div>-->
+<!--        </div>-->
+<!--        <div class="row form-group">-->
+<!--            <div class="col"><span th:text="${car.make}"/></div>-->
+<!--            <div class="col"><span th:text="${car.model}"/></div>-->
+<!--            <div class="col"><span th:text="${car.bodyType}"/></div>-->
+<!--            <div class="col"><span th:text="${car.colour}"/></div>-->
+<!--            <div class="col"><span th:text="${car.fee}"/></div>-->
+<!--            <div class="col"><span th:text="${car.department.name}"/></div>-->
+<!--        </div>-->
+<!--        <input type="submit" name="submit" class="btn btn-outline-info" th:value="BOOK"/>-->
+<!--    </form>-->
+<!--</div>-->
+
+</body>
+</html>

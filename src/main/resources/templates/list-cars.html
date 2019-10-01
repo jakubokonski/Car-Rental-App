@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of cars</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a href="/" class="btn">Home</a>
+    <a href="/create-company" class="btn">Create company</a>
+    <a href="/add-department" class="btn">Add department</a>
+    <a href="/add-employee" class="btn">Add employee</a>
+    <a href="/add-car" class="btn">Add car</a>
+</nav> <br>
+<div class="container">
+    <div class="row form-group">
+        <div class="col"><strong>Make</strong></div>
+        <div class="col"><strong>Model</strong></div>
+        <div class="col"><strong>Type</strong></div>
+        <div class="col"><strong>Year</strong></div>
+        <div class="col"><strong>Colour</strong></div>
+        <div class="col"><strong>Fee</strong></div>
+        <div class="col"><strong>Department</strong></div>
+        <div class="col"><strong>Status</strong></div>
+<!--        <div class="col"><strong>Details</strong></div>-->
+
+    </div>
+    <div class="row form-group" th:each="car: ${cars}">
+        <a th:href="@{'/edit-car-details?id=' + ${car.id}}" class="list-group-item list-group-item-action">
+            <div class="row">
+        <div class="col"><span th:text="${car.make}"/></div>
+        <div class="col"><span th:text="${car.model}"/></div>
+        <div class="col"><span th:text="${car.bodyType}"/></div>
+        <div class="col"><span th:text="${car.year}"/></div>
+        <div class="col"><span th:text="${car.colour}"/></div>
+        <div class="col"><span th:text="${car.fee}"/></div>
+        <div class="col"><span th:text="${car.department.name}"/></div>
+        <div class="col"><span th:text="${car.rentalStatus}"/></div>
+            </div>
+<!--        <div class="col">-->
+<!--            <a th:href="@{'/edit-car-details?id=' + ${car.id}}" class="btn btn-info">Edit</a>-->
+            <!--        </div>-->
+        </a>
+    </div>
+    <div class="row">
+        <div class="col">Add car</div>
+    </div>
+</div></body>
+</html>

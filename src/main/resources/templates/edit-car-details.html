@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of cars</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a href="/" class="btn">Home</a>
+    <a href="/create-company" class="btn">Create company</a>
+    <a href="/add-department" class="btn">Add department</a>
+    <a href="/add-employee" class="btn">Add employee</a>
+    <a href="/add-car" class="btn">Add car</a>
+</nav> <br>
+<div class="container">
+    <form method="post" th:action="@{'/edit-car-details?id=' + ${editCarForm.id}}" th:object="${editCarForm}">
+        <div class="row form-group" >
+            <input type="hidden" th:field="*{id}">
+            <div class="col">Make</div>
+            <div class="col">
+                <input type="text" class="form-control" id="inputMake" th:field="*{make}">
+            </div>
+        </div>
+        <div class="row form-group" >
+            <div class="col">Model</div>
+            <div class="col">
+                <input type="text" class="form-control" id="inputModel" th:field="*{model}">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col">Body Type</div>
+            <div class="col">
+                <select class="form-control" id="selectBodyType" th:field="*{bodyType}">
+                    <option th:each="bodyType : ${T(com.carrental.CarRental.model.enums.BodyType).values()}" th:value="${bodyType}" th:text="${bodyType.displayName}" ></option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group" >
+            <div class="col">Year</div>
+            <div class="col">
+                <input type="text" class="form-control" id="inputYear" th:field="*{year}">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col">Colour</div>
+            <div class="col">
+                <select class="form-control" id="selectColour" th:field="*{colour}">
+                    <option th:each="colour : ${T(com.carrental.CarRental.model.enums.Colour).values()}" th:value="${colour}" th:text="${colour.displayName}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group" >
+            <div class="col">Mileage</div>
+            <div class="col">
+                <input type="text" class="form-control" id="inputMileage" th:field="*{mileage}">
+            </div>
+        </div>
+        <div class="row form-group" >
+            <div class="col">Fee</div>
+            <div class="col">
+                <input type="text" class="form-control" id="inputFee" th:field="*{fee}">
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col">Status</div>
+            <div class="col">
+                <select class="form-control" id="selectStatus" th:field="*{rentalStatus}">
+                    <option th:each="rentalStatus : ${T(com.carrental.CarRental.model.enums.RentalStatus).values()}" th:value="${rentalStatus}" th:text="${rentalStatus.displayName}"></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col">Department</div>
+            <div class="col">
+                <select class="form-control"  th:field="*{department}">
+                    <option th:each="department: ${departments}" th:value="${department.id}" th:text="${department.name}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a th:href="list-cars" class="btn btn-outline-info">Back</a>
+            </div>
+            <div class="col text-right">
+                <input type="submit" name="submit" class="btn btn-outline-info" th:value="Submit"/>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>

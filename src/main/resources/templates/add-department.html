@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Department</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav th:replace="components/logged-menu :: logged-menu"></nav>
+
+<!-- OLD LAYOUT -->
+
+<div class="container">
+    <div class="row">
+        <form method="post" th:action="@{/add-department}" th:object="${departmentForm}">
+            Add new department.
+            <div class="form-group">
+                <label for="inputName">Department name</label>
+                <input type="text" class="form-control" id="inputName" th:field="*{name}">
+                <p th:errors="*{name}"></p>
+            </div>
+            <div class="form-group">
+                <label for="inputStreet">Street</label>
+                <input type="text" class="form-control" id="inputStreet" th:field="*{street}">
+                <p th:errors="*{street}"></p>
+            </div>
+            <div class="form-group">
+                <label for="inputBuildingNo">Building no.</label>
+                <input type="text" class="form-control" id="inputBuildingNo" th:field="*{buildingNumber}">
+                <p th:errors="*{buildingNumber}"></p>
+            </div>
+            <div class="form-group">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+                <p th:errors="*{city}"></p>
+            </div>
+            <input type="submit" name="submit" class="btn btn-outline-info" th:value="Submit"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
